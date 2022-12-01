@@ -7,11 +7,12 @@ function NewPostForm(props){
 
 	function handleNewPostSubmit(event){
 		event.preventDefault();
+      const today = new Date();
 		props.onNewPost({
 			title: event.target.title.value,
 			body: event.target.body.value,
 			author: event.target.author.value,
-			timestamp: Date.now().toLocaleString(),
+			timestamp: today.toUTCString(),
 			votes: 0,
 			id: v4()
 		});

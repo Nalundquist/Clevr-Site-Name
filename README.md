@@ -51,9 +51,9 @@ Tested in Latest Google Chrome build
 
 ## Known Bugs
 
-* all seed data assigned a v4 id is double posted; we do not know why.  More than likely there is a better way of initializing state that we must use for next time.
-* up and down voting is not yet functional
-* All timecodes for new posts currently displayed in UTC milliseconds, WIP!
+* All seed data assigned a v4 id is double posted; we do not know why.  More than likely there is a better way of initializing state that we must use for next time.
+* Up and down voting is not yet functional
+* New posts and seeded posts do not have consistent dating at this point, WIP
 
 ## License
 
