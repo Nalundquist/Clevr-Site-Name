@@ -8,7 +8,7 @@
 
 ## Description
 
-![Component Diagram](./src/img/pizzadiagram.png)
+![Component Diagram](./online-forum-diagram.drawio.png)
 
 A React/Redux based website for a fictional social media site, up/down-voting of posts WIP.  Currently an experiment with utilizing Redux-based state management, such in tandem with seed data, and sorting in reducers (also WIP).   
 
