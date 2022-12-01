@@ -51,9 +51,9 @@ Tested in Latest Google Chrome build
 
 ## Known Bugs
 
-
-* As of this writing the reducer handling sorting does not actually do that
-* Much of the seed data is seeded using dispatches inside of the App.js which is probably not best practice.  Refactoring needed.
+* all seed data assigned a v4 id is double posted; we do not know why.  More than likely there is a better way of initializing state that we must use for next time.
+* up and down voting is not yet functional
+* All timecodes for new posts currently displayed in UTC milliseconds, WIP!
 
 ## License
 

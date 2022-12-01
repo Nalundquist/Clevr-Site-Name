@@ -15,8 +15,7 @@ function Post(props){
     <React.Fragment>
 		  <div style={postStyle}>
         <div class="timeStyle">
-          <h3>{props.author}</h3>
-          <img src={profileImg}></img>
+          <h3><img src={profileImg}></img>{props.author}</h3>
         </div>
 		  	<h2 >{props.title}</h2>
         <h4>{props.body}</h4>
