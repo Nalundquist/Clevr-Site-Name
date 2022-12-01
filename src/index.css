@@ -12,35 +12,74 @@ code {
     monospace;
 }
 
-[class*="icono-arrow4"]{
-  width: 0;
-  height: 0;
-  border: 7px solid transparent;
-  border-top: 7px solid;
-  border-right: 7px solid;
-  margin: 15px;
-  &[class*="-left"]{
+
+img {
+  width: 32px;
+}
+
+.gg-arrow-up {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 22px;
+  height: 22px
+}
+
+.gg-arrow-up::after,
+.gg-arrow-up::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 4px
+}
+.gg-arrow-up::after {
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid;
+    border-left: 2px solid;
     transform: rotate(45deg);
-    &[class*="-up"]{
-      transform: none;
-    }
-    &[class*="-down"]{
-      transform: rotate(90deg);
-    }
-  }
-  &[class*="-right"]{
-    transform: rotate(-135deg);
-    &[class*="-up"]{
-      transform: rotate(-90deg);
-    }
-    &[class*="-down"]{
-      transform: rotate(180deg);
-    }
-  }
-  &[class*="-up"]{
-    transform: rotate(-45deg);
-  }
-  &[class*="-down"]{
-    transform: rotate(135deg);
-  }
+    left: 7px
+}
+.gg-arrow-up::before {
+    width: 2px;
+    height: 16px;
+    left: 10px;
+    background: currentColor
+}
+
+.gg-arrow-down {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 22px;
+  height: 22px
+}
+.gg-arrow-down::after,
+.gg-arrow-down::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 4px
+}
+.gg-arrow-down::after {
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  transform: rotate(-45deg);
+  left: 7px
+}
+.gg-arrow-down::before {
+  width: 2px;
+  height: 16px;
+  left: 10px;
+  background: currentColor
+}
+
+.timeStyle {
+  float: right;
 }

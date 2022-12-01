@@ -3,7 +3,7 @@ import React from "react";
 function Header(){
 
 	const headerStyle = {
-		height: '45px',
+		height: '115px',
 		width: '87%',
 		border: '3px solid grey',
 		borderRadius: '8px',

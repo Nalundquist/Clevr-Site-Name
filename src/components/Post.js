@@ -1,21 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import "../index.css"
+import profileImg from "../img/profileimg.png";
 
 function Post(props){
 	const postStyle = {
 		width: '85%',
+    padding: '10px',
 		minHeight: '30vh',
-		border: '2px solid grey',
-
+		border: '2px solid grey'
 	}
 
 	return(
     <React.Fragment>
 		  <div style={postStyle}>
-		  	<h2>{props.title} - {props.author}</h2>
-        <h3>{props.body}</h3>
-        <p>{props.votes} Votes. . . . . . . . . . . . . . . . . . . . . . . . {props.timestamp}</p>
-        <h2></h2>
+        <div class="timeStyle">
+          <h3>{props.author}</h3>
+          <img src={profileImg}></img>
+        </div>
+		  	<h2 >{props.title}</h2>
+        <h4>{props.body}</h4>
+        <p class="timeStyle">{props.timestamp}</p>
+        <div class="gg-arrow-up"></div>
+        <p>{props.votes}</p>
+        <div class="gg-arrow-down"></div>
+        
         <h2></h2>
 		  </div>
     </React.Fragment>
