@@ -39,8 +39,57 @@ class PostControl extends React.Component {
     dispatch(action2);
   }
 
-  render(){
+  initialSeed = () => {
     const {dispatch} = this.props;
+    const action =
+    {
+      type: 'NEW_POST',
+      timestamp: 'January 4th, 2022 14:45:29',
+      author: 'PotatoLover1984',
+      title: 'Love to eat those tates',
+      body: 'Gosh bedarned I love to consume nightshades and other buried root vegetables, mostly those of my namesake.  So excited to have some mashed taters later',
+      votes: 345,
+      id: v4()
+    }
+    const action2 = 
+    {
+      type: 'NEW_POST',
+      timestamp: 'November 2nd, 2007 08:24:09',
+      author:'SeinfeldFan87',
+      title: 'I had this great movie idea',
+      body: 'According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don\'t carewhat humans think is impossible.',
+      votes: 0,
+      id: v4()
+    }
+    const action3 = 
+    {
+      type: 'NEW_POST',
+      timestamp: 'October 30th, 2000 23:59:00',
+      author: 'WitchFingerz',
+      title: 'The veil is thin...',
+      body: 'Making so many potions and concoctions in preparation for All Hollows Eve.  My nose is twitching with delight.',
+      votes: 13,
+      id: 1
+    }
+    const action4 =
+    {
+      type: 'NEW_POST',
+      timestamp: 'November 28th, 2022 10:04:29',
+      author:'LoserTroll2000',
+      title: 'This forum sucks lmao',
+      body: 'Nobody posts here???  You are all diaper babies lol',
+      votes: -19,
+      id: v4()
+    }
+    dispatch(action);
+    dispatch(action2);
+    dispatch(action3);
+    dispatch(action4);
+    dispatch({type: 'SEED_DATA'});
+  }
+
+
+  render(){
     const buttonStyle = {
       position: 'fixed',
       bottom: '10px',
@@ -48,61 +97,15 @@ class PostControl extends React.Component {
       height: '50px',
       width: '50px'
     }
-    const action3 =
-      {
-        type: 'NEW_POST',
-        timestamp: 'January 4th, 2022 14:45:29',
-        author: 'PotatoLover1984',
-        title: 'Love to eat those tates',
-        body: 'Gosh bedarned I love to consume nightshades and other buried root vegetables, mostly those of my namesake.  So excited to have some mashed taters later',
-        votes: 345,
-        id: v4()
-      }
-    const action4 = 
-      {
-        type: 'NEW_POST',
-        timestamp: 'November 2nd, 2007 08:24:09',
-        author:'SeinfeldFan87',
-        title: 'I had this great movie idea',
-        body: 'According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don\'t carewhat humans think is impossible.',
-        votes: 0,
-        id: v4()
-      }
-    const action5 = 
-      {
-        type: 'NEW_POST',
-        timestamp: 'October 30th, 2000 23:59:00',
-        author: 'WitchFingerz',
-        title: 'The veil is thin...',
-        body: 'Making so many potions and concoctions in preparation for All Hollows Eve.  My nose is twitching with delight.',
-        votes: 13,
-        id: 1
-      }
-    const action6 =
-      {
-        type: 'NEW_POST',
-        timestamp: 'November 28th, 2022 10:04:29',
-        author:'LoserTroll2000',
-        title: 'This forum sucks lmao',
-        body: 'Nobody posts here???  You are all diaper babies lol',
-        votes: -19,
-        id: v4()
-      }
-    const action7 = {type: 'SORT_POST'}
 
     let visibleComponent = null;
     console.log(this.props.postListIsEmpty);
     if(this.props.postListIsEmpty){
-      dispatch(action3);
-      dispatch(action4);
-      dispatch(action5);
-      dispatch(action6);
-      dispatch({type: 'SEED_DATA'});
+      this.initialSeed();
     }
     if (this.props.formVisibleOnPage){
       visibleComponent = <NewPostForm onNewPost={this.handleNewPost} />
     } else {
-      dispatch(action7);
       visibleComponent = <PostList postList={this.props.sortedPostList}/>
     }
     return (
@@ -119,11 +122,13 @@ class PostControl extends React.Component {
 }
 
 const mapStateToProps = state => {
+  let sortedPostList = {...state.mainPostList}
+  sortedPostList = Object.values(sortedPostList).sort((a, b) => a.votes - b.votes);
   return{
     mainPostList: state.mainPostList,
     formVisibleOnPage: state.formVisibleOnPage,
     postListIsEmpty: state.postListIsEmpty,
-    sortedPostList: state.sortedPostList
+    sortedPostList: sortedPostList
   }
 }
 

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 function Post(props){
 	const postStyle = {
-		width: '55%',
-		height: '27vh',
+		width: '85%',
+		minHeight: '30vh',
 		border: '2px solid grey',
 
 	}
@@ -12,11 +12,11 @@ function Post(props){
 	return(
     <React.Fragment>
 		  <div style={postStyle}>
-		  	<h2>{props.author}</h2>
-        <h2>{props.title}</h2>
-        <h2>{props.body}</h2>
-        <h2>{props.votes}</h2>
-        <h2>{props.timestamp}</h2>
+		  	<h2>{props.title} - {props.author}</h2>
+        <h3>{props.body}</h3>
+        <p>{props.votes} Votes. . . . . . . . . . . . . . . . . . . . . . . . {props.timestamp}</p>
+        <h2></h2>
+        <h2></h2>
 		  </div>
     </React.Fragment>
 	)

@@ -11,7 +11,7 @@ function NewPostForm(props){
 			title: event.target.title.value,
 			body: event.target.body.value,
 			author: event.target.author.value,
-			timestamp: Date.now().toLocaleDateString(),
+			timestamp: Date.now().toLocaleString(),
 			votes: 0,
 			id: v4()
 		});
@@ -23,6 +23,10 @@ function NewPostForm(props){
 			formSubmissionHandler={handleNewPostSubmit} />
 		</div>
 	);
+}
+
+NewPostForm.propTypes = {
+	onNewPost: PropTypes.func
 }
 
 export default NewPostForm

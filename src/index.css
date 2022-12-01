@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+[class*="icono-arrow4"]{
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-top: 7px solid;
+  border-right: 7px solid;
+  margin: 15px;
+  &[class*="-left"]{
+    transform: rotate(45deg);
+    &[class*="-up"]{
+      transform: none;
+    }
+    &[class*="-down"]{
+      transform: rotate(90deg);
+    }
+  }
+  &[class*="-right"]{
+    transform: rotate(-135deg);
+    &[class*="-up"]{
+      transform: rotate(-90deg);
+    }
+    &[class*="-down"]{
+      transform: rotate(180deg);
+    }
+  }
+  &[class*="-up"]{
+    transform: rotate(-45deg);
+  }
+  &[class*="-down"]{
+    transform: rotate(135deg);
+  }
+}
